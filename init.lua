@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -282,6 +282,25 @@ require('lazy').setup({
         changedelete = { text = '~' },
       },
     },
+  },
+
+  -- 26.10.2025 / KS
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('lualine').setup {
+        options = {
+          globalstatus = true,
+          theme = 'auto',
+        },
+        sections = {
+          lualine_a = { 'mode' },
+          lualine_c = { 'filename' },
+          lualine_x = { 'filetype' },
+        },
+      }
+    end,
   },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
